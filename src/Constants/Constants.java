@@ -7,8 +7,8 @@ public class Constants {
     }
 
     public static final int obj_size = 10;
-    public static final int N_ANIMALS = 200;
-    public static final int N_GRASS = 10;
+    public static final int N_ANIMALS = 1000;
+    public static final int N_GRASS = 50;
     public static final int BOARD_WIDTH = 50;
     public static final int BOARD_HEIGHT = 50;
     public static final int GAME_SPEED = 100;

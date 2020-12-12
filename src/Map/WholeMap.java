@@ -41,18 +41,26 @@ public class WholeMap implements Observer{
             while(!place(new Animal(this, getRandomVect(), Constants.START_ENERGY, Genotype.generateRandomGens())));
         }
         for(int i = 0;i < n_grass;i++) {
-            while(!plantGrass(new Grass(getRandomVect())));
+            while(!plantGrassWorld(new Grass(getRandomVect())));
         }
-
     }
 
-    public boolean plantGrass(Grass grass) {
-        if(!isOccupied(grass.getPosition()) && objectAt(grass.getPosition()) == null){
+    public boolean plantGrassWorld(Grass grass) {
+        if(!isOccupied(grass.getPosition()) && objectAt(grass.getPosition()) == null && !this.jungle.contains(grass.getPosition())){
             plants.put(grass.getPosition(), grass);
             return true;
         }
         return false;
     }
+    public boolean plantGrassJungle(Grass grass) {
+        if(!isOccupied(grass.getPosition()) && objectAt(grass.getPosition()) == null){
+            plants.put(grass.getPosition(), grass);
+            this.jungle.setCapacity(this.jungle.getCapacity() + 1);
+            return true;
+        }
+        return false;
+    }
+
 
     public Vector2d getRandomVect(){
         return new Vector2d(xGenerator.nextInt(xSize), yGenerator.nextInt(ySize));
@@ -217,13 +225,20 @@ public class WholeMap implements Observer{
             }
         }
         for(Grass grass : toRemove) {
+            if(this.jungle.contains(grass.getPosition())) {
+                this.jungle.setCapacity(this.jungle.getCapacity() - 1);
+            }
             plants.remove(grass.getPosition());
         }
     }
 
     public void plantGrasses() {
-        while(!plantGrass(new Grass(getRandomVect())));
-        while(!plantGrass(new Grass(jungle.getRandomVect())));
+        while(!plantGrassWorld(new Grass(getRandomVect())));
+        if(!this.jungle.isFull()) {
+            int i = 0;
+            while(!plantGrassJungle(new Grass(jungle.getRandomVect())) && ++i <= (this.jungle.xSize*this.jungle.ySize));
+        }
+
     }
 
     public void simulateOneDay() {

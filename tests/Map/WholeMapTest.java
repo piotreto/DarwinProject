@@ -59,7 +59,7 @@ class WholeMapTest {
         assertNotNull(map.objectAt(fox.getPosition()));
         assertNotNull(map.objectAt(bat.getPosition()));
 
-        map.plantGrass(new Grass(fox.getPosition().add(fox.getDirection().toUnitVector()))); // we put grass on the field
+        map.plantGrassWorld(new Grass(fox.getPosition().add(fox.getDirection().toUnitVector()))); // we put grass on the field
         // where fox is going to move
 
         oldEnergyFox = fox.getAnimal_energy();

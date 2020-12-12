@@ -18,6 +18,7 @@ public class Animal implements Observable{
     private int children = 0;
     private int years = 0;
     private int dead = 0;
+    private int ancestors = 0;
 
     public Animal(WholeMap map) {
         this.map = map;
@@ -61,11 +62,17 @@ public class Animal implements Observable{
                 position = map.getRandomVect();
             }
         }
-        return new Animal(map, position, energy, newGenotype);
+        Animal brzdac = new Animal(map, position, energy, newGenotype);
+        brzdac.setAncestors(this.getAncestors() + other.getAncestors() + 2);
+        return brzdac;
 
+    }
 
-
-
+    public int getAncestors() {
+        return this.ancestors;
+    }
+    public void setAncestors(int n) {
+        this.ancestors = n;
     }
 
     public void setEnergy(double n) {
@@ -143,6 +150,10 @@ public class Animal implements Observable{
     }
     public int getDead() {
         return this.dead;
+    }
+
+    public void test() {
+
     }
 
 

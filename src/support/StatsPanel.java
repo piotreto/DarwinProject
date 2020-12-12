@@ -9,7 +9,7 @@ import java.awt.*;
 
 public class StatsPanel extends JPanel {
 
-    private static final int HEIGHT = 100;
+    private static final int HEIGHT = 300;
     private static final int WIDTH = 150;
     private JLabel animalsCounter;
     private JLabel grassCounter;
@@ -29,7 +29,7 @@ public class StatsPanel extends JPanel {
         grassCounter = new JLabel(String.format("Liczba roślin: %d", this.stats.countGrasses()));
         dominateGenom = new JLabel(String.format("Dominujący genom: %d", this.stats.getDominateGenom()));
         averageEnergy = new JLabel(String.format("Średni poziom energii %f", this.stats.getAverageEnergy()));
-        averageDeadsLive = new JLabel(String.format("Średnia długość żyia: %f", this.stats.getAverageDeadsLive()));
+        averageDeadsLive = new JLabel(String.format("Średnia długość życia: %f", this.stats.getAverageDeadsLive()));
         averageChildren = new JLabel(String.format("Średnia liczba dzieci: %f", this.stats.getAverageChildren()));
         this.add(animalsCounter);
         this.add(grassCounter);
