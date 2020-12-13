@@ -7,10 +7,10 @@ import Math.*;
 
 import java.awt.*;
 
-public class StatsPanel extends JPanel {
+public class StatsPanel extends JList {
 
-    private static final int HEIGHT = 300;
-    private static final int WIDTH = 150;
+    private static final int HEIGHT = 400;
+    private static final int WIDTH = 400;
     private JLabel animalsCounter;
     private JLabel grassCounter;
     private JLabel dominateGenom;
@@ -21,32 +21,25 @@ public class StatsPanel extends JPanel {
     private WholeMap map;
 
     public StatsPanel(WholeMap map) {
+        super(new DefaultListModel<>());
         this.map = map;
         this.stats = new Statistics(map);
-        setPreferredSize(new Dimension(WIDTH, HEIGHT));
-        setLayout(new GridLayout(6,1));
-        animalsCounter = new JLabel(String.format("Liczba zwierząt: %d", this.stats.countAnimals()));
-        grassCounter = new JLabel(String.format("Liczba roślin: %d", this.stats.countGrasses()));
-        dominateGenom = new JLabel(String.format("Dominujący genom: %d", this.stats.getDominateGenom()));
-        averageEnergy = new JLabel(String.format("Średni poziom energii %f", this.stats.getAverageEnergy()));
-        averageDeadsLive = new JLabel(String.format("Średnia długość życia: %f", this.stats.getAverageDeadsLive()));
-        averageChildren = new JLabel(String.format("Średnia liczba dzieci: %f", this.stats.getAverageChildren()));
-        this.add(animalsCounter);
-        this.add(grassCounter);
-        this.add(dominateGenom);
-        this.add(averageEnergy);
-        this.add(averageDeadsLive);
-        this.add(averageChildren);
+        this.setVisibleRowCount(50);
+        this.doOneLoop();
+
 
     }
 
     public void doOneLoop() {
-        animalsCounter.setText(String.format("Liczba zwierząt: %d", this.stats.countAnimals()));
-        grassCounter.setText(String.format("Liczba roślin: %d", this.stats.countGrasses()));
-        dominateGenom.setText(String.format("Dominujący genom: %d", this.stats.getDominateGenom()));
-        averageEnergy.setText(String.format("Średni poziom energii %f", this.stats.getAverageEnergy()));
-        averageDeadsLive.setText(String.format("Średnia długość życia: %f", this.stats.getAverageDeadsLive()));
-        averageChildren.setText(String.format("Średnia liczba dzieci: %f", this.stats.getAverageChildren()));
+        DefaultListModel<String> listText = new DefaultListModel<>();
+        listText.addElement(String.format("Liczba zwierząt: %d", this.stats.countAnimals()));
+        listText.addElement(String.format("Liczba roślin: %d", this.stats.countGrasses()));
+        listText.addElement(String.format("Dominujący genom: %d", this.stats.getDominateGenom()));
+        listText.addElement(String.format("Średni poziom energii %f", this.stats.getAverageEnergy()));
+        listText.addElement(String.format("Średnia długość życia: %f", this.stats.getAverageDeadsLive()));
+        listText.addElement(String.format("Średnia liczba dzieci: %f", this.stats.getAverageChildren()));
+        this.setModel(listText);
+
     }
 
 }

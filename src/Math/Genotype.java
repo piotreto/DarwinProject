@@ -104,6 +104,16 @@ public class Genotype {
         return g;
     }
 
+    public int getDominate() {
+        int best = 0;
+        for(int i = 1;i < 8;i++) {
+            if (this.gensCounter[i] >  this.gensCounter[best]) {
+                best = i;
+            }
+        }
+        return best;
+    }
+
     public int[] getGensCounter() {
         return this.gensCounter;
     }

@@ -23,7 +23,7 @@ public class MainFrame extends JFrame {
         this.engine = new Simulation(WorldMap, Stats, this.map);
         WorldMap.setEngine(this.engine);
         ButtonsPanel Buttons = new ButtonsPanel(this.engine);
-        sidePanel Side = new sidePanel(Buttons, Stats);
+        sidePanel Side = new sidePanel(Buttons, Stats, WorldMap);
 
         setLayout(new FlowLayout());
 

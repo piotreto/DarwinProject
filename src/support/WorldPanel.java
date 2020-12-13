@@ -23,12 +23,15 @@ public class WorldPanel extends JPanel implements MouseListener {
     private WholeMap map;
     private int objSize = Constants.obj_size;
     private boolean isRunning = false;
+    private boolean chooseBest = false;
+    private Statistics stats;
 
 
     public WorldPanel(WholeMap map) {
         addMouseListener(this);
         this.map = map;
         setPreferredSize(new Dimension(map.ySize * objSize,map.xSize * objSize));
+        this.stats =  new Statistics(map);
     }
 
 
@@ -65,6 +68,14 @@ public class WorldPanel extends JPanel implements MouseListener {
     }
 
     private void drawAnimal(Graphics2D g, Animal animal) {
+        if(this.chooseBest) {
+            System.out.println("Hello");
+            if(animal.gens.getDominate() == stats.getDominateGenom()){
+                g.setColor(new Color(0, 62, 245));
+                g.fillRect(animal.getPosition().x * objSize, animal.getPosition().y * objSize, objSize, objSize);
+                return;
+            }
+        }
         int redComponent = (((int)(animal.getAnimal_energy()*120/Constants.PROCREATING_ENERGY)));
         if(redComponent > 255) redComponent = 255;
         g.setColor(new Color(redComponent,10,10));
@@ -135,5 +146,14 @@ public class WorldPanel extends JPanel implements MouseListener {
 
     public void setEngine(Simulation engine) {
         this.engine = engine;
+    }
+    public void setChooseBest(boolean choice) {
+        this.chooseBest = choice;
+    }
+    public boolean isChooseBest() {
+        return this.chooseBest;
+    }
+    public WholeMap getMap() {
+        return this.map;
     }
 }

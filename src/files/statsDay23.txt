@@ -1,0 +1,6 @@
+Liczba zwierząt: 1106
+Liczba roślin: 8
+Dominujący genom: 6
+Średni poziom energii 71,198632
+Średnia długość życia: 0,000000
+Średnia liczba dzieci: 1,097649

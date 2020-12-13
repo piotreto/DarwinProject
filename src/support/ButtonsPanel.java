@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 
 public class ButtonsPanel extends JPanel {
 
-    public static final int HEIGHT = 100;
+    public static final int HEIGHT = 50;
     public static final int WIDTH = 300;
 
     private JButton startButton;

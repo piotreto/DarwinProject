@@ -28,7 +28,7 @@ public class JungleMap {
 
     public boolean contains(Vector2d position) {
 
-        return position.precedes(upperRight) && position.follows(bottomLeft);
+        return position.x < upperRight.x && position.y < upperRight.y && position.follows(bottomLeft);
 
     }
 

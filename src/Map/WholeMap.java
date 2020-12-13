@@ -22,6 +22,7 @@ public class WholeMap implements Observer{
     private int deadslive = 0;
     private int deads = 0;
     private int n = 0;
+    private int objCounter;
 
     public WholeMap(int n_animals, int n_grass, int height, int width, double jungleRatio) {
         this.n_animals = n_animals;
@@ -41,10 +42,21 @@ public class WholeMap implements Observer{
             while(!place(new Animal(this, getRandomVect(), Constants.START_ENERGY, Genotype.generateRandomGens())));
         }
         for(int i = 0;i < n_grass;i++) {
-            while(!plantGrassWorld(new Grass(getRandomVect())));
+            while(!plantGrassRandomly(new Grass(getRandomVect())));
         }
+        System.out.println(this.jungle.getCapacity());
     }
 
+    public boolean plantGrassRandomly(Grass grass) {
+        if(!isOccupied(grass.getPosition()) && objectAt(grass.getPosition()) == null){
+            plants.put(grass.getPosition(), grass);
+            if(this.jungle.contains(grass.getPosition())) {
+                this.jungle.setCapacity(this.jungle.getCapacity() + 1);
+            }
+            return true;
+        }
+        return false;
+    }
     public boolean plantGrassWorld(Grass grass) {
         if(!isOccupied(grass.getPosition()) && objectAt(grass.getPosition()) == null && !this.jungle.contains(grass.getPosition())){
             plants.put(grass.getPosition(), grass);
@@ -88,10 +100,6 @@ public class WholeMap implements Observer{
             }
             idx++;
         }
-    }
-
-    public boolean canMoveTo(Vector2d position) {
-        return false;
     }
 
     public boolean place(Animal animal) {
@@ -263,5 +271,8 @@ public class WholeMap implements Observer{
     }
     public void setDeadslive(int n) {
         this.deadslive = n;
+    }
+    public int getDays() {
+        return this.n;
     }
 }

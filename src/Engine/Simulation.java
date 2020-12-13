@@ -32,12 +32,15 @@ public class Simulation implements ActionListener {
     public void actionPerformed(ActionEvent actionEvent) {
         switch (actionEvent.getActionCommand()) {
             case "Start":
+                this.worldPanel.setChooseBest(false);
                 this.timer.start();
                 this.setRunning(true);
+                this.worldPanel.setRunning(true);
                 break;
             case "Pause":
                 this.timer.stop();
                 this.setRunning(false);
+                this.worldPanel.setRunning(false);
                 break;
         }
     }
