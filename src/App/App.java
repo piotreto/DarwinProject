@@ -1,12 +1,10 @@
 package App;
 
-import Assets.Animal;
+
 import Constants.Constants;
 import Map.WholeMap;
 import support.MainFrame;
-
 import java.awt.*;
-import java.util.ArrayList;
 
 public class App {
     public static void main(String[] args) {

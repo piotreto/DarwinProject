@@ -6,13 +6,11 @@ import Constants.Constants;
 import Engine.Simulation;
 import Map.WholeMap;
 import Math.*;
-import Map.*;
+
 
 
 import javax.swing.*;
-import javax.swing.plaf.synth.SynthOptionPaneUI;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
@@ -76,7 +74,7 @@ public class WorldPanel extends JPanel implements MouseListener {
                 return;
             }
         }
-        int redComponent = (((int)(animal.getAnimal_energy()*120/Constants.PROCREATING_ENERGY)));
+        int redComponent = (((int)(animal.getAnimal_energy()*120/(Constants.START_ENERGY / 3))));
         if(redComponent > 255) redComponent = 255;
         g.setColor(new Color(redComponent,10,10));
         g.fillRect(animal.getPosition().x * objSize, animal.getPosition().y * objSize, objSize, objSize);
