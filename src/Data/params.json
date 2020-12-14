@@ -4,8 +4,8 @@
   "plantEnergy": 100,
   "jungleRatio": 0.4,
   "startEnergy": 150,
-  "animalsOnStart": 500,
+  "animalsOnStart": 100,
   "grassOnStart" : 200,
   "moveEnergy" : 1,
-  "speed" : 100
+  "speed" : 0
 }

@@ -10,9 +10,11 @@ public class MainFrame extends JFrame {
 
     private WholeMap map;
     private Simulation engine;
+    public boolean isMain;
 
-    public MainFrame(WholeMap map) {
+    public MainFrame(WholeMap map, boolean isMain) {
         this.map = map;
+        this.isMain = isMain;
         initializeLayout();
     }
 
@@ -35,9 +37,10 @@ public class MainFrame extends JFrame {
         setTitle("Darwin World");
 
         pack();
-
+        if(this.isMain){
+            setDefaultCloseOperation(EXIT_ON_CLOSE);
+        }
         setResizable(false);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
 

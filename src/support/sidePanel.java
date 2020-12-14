@@ -48,7 +48,7 @@ public class sidePanel extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent actionEvent) {
         if (actionEvent.getSource() == this.newWorld) {
             WholeMap map2 = new WholeMap(Constants.N_ANIMALS,Constants.N_GRASS, Constants.BOARD_HEIGHT, Constants.BOARD_WIDTH, Constants.JUNGLE_RATIO);
-            new MainFrame(map2);
+            new MainFrame(map2, false);
         } else if (actionEvent.getSource() == this.turnBest) {
             if(!this.World.isRunning()){
                 this.World.setChooseBest(true);
