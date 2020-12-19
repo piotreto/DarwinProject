@@ -24,22 +24,6 @@ public class Statistics {
         return map.plants.size();
     }
 
-    public int getDominateGenom() {
-        ArrayList<Animal> AnimalList = map.getList();
-        int[] gensCount = new int[]{0,0,0,0,0,0,0,0};
-        for(Animal animal : AnimalList) {
-            for(int i = 0;i < 8;i++) {
-                gensCount[i] += animal.getGens().getGensCounter()[i];
-            }
-        }
-        int max = 0;
-        for(int i = 1;i < 8;i++) {
-            if (gensCount[i] > gensCount[max]) {
-                max = i;
-            }
-        }
-        return max;
-    }
 
     public double getAverageEnergy() {
         ArrayList<Animal> AnimalList = map.getList();

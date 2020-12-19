@@ -1,4 +1,4 @@
-package support;
+package view;
 
 import Constants.Constants;
 import Map.WholeMap;

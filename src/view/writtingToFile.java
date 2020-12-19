@@ -1,4 +1,4 @@
-package support;
+package view;
 
 import Map.WholeMap;
 import Math.*;

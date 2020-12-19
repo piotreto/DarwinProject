@@ -1,4 +1,4 @@
-package support;
+package view;
 
 import Engine.Simulation;
 import Map.WholeMap;

@@ -12,7 +12,7 @@ public class Animal implements Observable{
     private final List<Observer> observers = new ArrayList<>();
     private MapDirection orient = MapDirection.NORTH;
     private Vector2d position = new Vector2d(2,2);
-    public WholeMap map;
+    private WholeMap map;
     private Genotype gens;
     private double animal_energy;
     private int children = 0;

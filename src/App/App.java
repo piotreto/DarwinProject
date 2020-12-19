@@ -3,7 +3,7 @@ package App;
 
 import Constants.Constants;
 import Map.WholeMap;
-import support.MainFrame;
+import view.MainFrame;
 import java.awt.*;
 
 public class App {

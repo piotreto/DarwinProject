@@ -1,4 +1,4 @@
-package support;
+package view;
 
 import Assets.Animal;
 import Engine.Simulation;

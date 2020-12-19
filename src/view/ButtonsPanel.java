@@ -1,11 +1,9 @@
-package support;
+package view;
 
 import Engine.Simulation;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class ButtonsPanel extends JPanel {
 

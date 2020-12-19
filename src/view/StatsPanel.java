@@ -1,11 +1,9 @@
-package support;
+package view;
 
 import javax.swing.*;
 
 import Map.WholeMap;
 import Math.*;
-
-import java.awt.*;
 
 public class StatsPanel extends JList {
 

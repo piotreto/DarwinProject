@@ -2,9 +2,9 @@ package Engine;
 
 import Constants.Constants;
 import Map.WholeMap;
-import support.FollowingDialog;
-import support.StatsPanel;
-import support.WorldPanel;
+import view.FollowingDialog;
+import view.StatsPanel;
+import view.WorldPanel;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
