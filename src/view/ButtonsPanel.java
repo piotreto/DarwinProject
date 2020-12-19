@@ -31,5 +31,6 @@ public class ButtonsPanel extends JPanel {
         add(startButton);
         add(pauseButton);
     }
+    //testing
 
 }
