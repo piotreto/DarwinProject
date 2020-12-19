@@ -21,7 +21,7 @@ public class writtingToFile {
             FileWriter myWriter = new FileWriter("./src/files/statsDay" + n + ".txt");
             myWriter.write(String.format("Liczba zwierząt: %d\n", this.stats.countAnimals()));
             myWriter.write(String.format("Liczba roślin: %d\n", this.stats.countGrasses()));
-            myWriter.write(String.format("Dominujący genom: %d\n", this.stats.getDominateGenom()));
+            myWriter.write(String.format("Dominujący genotyp: %s\n", this.stats.getDominateGenotype()));
             myWriter.write(String.format("Średni poziom energii %f\n", this.stats.getAverageEnergy()));
             myWriter.write(String.format("Średnia długość życia: %f\n", this.stats.getAverageDeadsLive()));
             myWriter.write(String.format("Średnia liczba dzieci: %f\n", this.stats.getAverageChildren()));

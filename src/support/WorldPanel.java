@@ -67,8 +67,7 @@ public class WorldPanel extends JPanel implements MouseListener {
 
     private void drawAnimal(Graphics2D g, Animal animal) {
         if(this.chooseBest) {
-            System.out.println("Hello");
-            if(animal.gens.getDominate() == stats.getDominateGenom()){
+            if(animal.getGens().equals(stats.getDominateGenotype())){
                 g.setColor(new Color(0, 62, 245));
                 g.fillRect(animal.getPosition().x * objSize, animal.getPosition().y * objSize, objSize, objSize);
                 return;

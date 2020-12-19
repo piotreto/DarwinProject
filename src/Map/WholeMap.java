@@ -44,7 +44,6 @@ public class WholeMap implements Observer{
         for(int i = 0;i < n_grass;i++) {
             while(!plantGrassRandomly(new Grass(getRandomVect())));
         }
-        System.out.println(this.jungle.getCapacity());
     }
 
     public boolean plantGrassRandomly(Grass grass) {
@@ -151,7 +150,7 @@ public class WholeMap implements Observer{
 
         // deciding about direction of move
         for(Animal animal : AnimalsArray) {
-            int i = animal.gens.getRandomGen();
+            int i = animal.getGens().getRandomGen();
             animal.setDirection(MapDirection.values()[i]);
             animal.move();
         }

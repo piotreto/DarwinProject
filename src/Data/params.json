@@ -7,5 +7,5 @@
   "animalsOnStart": 100,
   "grassOnStart" : 200,
   "moveEnergy" : 1,
-  "speed" : 0
+  "speed" : 10
 }

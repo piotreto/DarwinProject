@@ -4,6 +4,8 @@ import Assets.Animal;
 import Map.WholeMap;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Statistics {
 
@@ -27,7 +29,7 @@ public class Statistics {
         int[] gensCount = new int[]{0,0,0,0,0,0,0,0};
         for(Animal animal : AnimalList) {
             for(int i = 0;i < 8;i++) {
-                gensCount[i] += animal.gens.getGensCounter()[i];
+                gensCount[i] += animal.getGens().getGensCounter()[i];
             }
         }
         int max = 0;
@@ -68,5 +70,38 @@ public class Statistics {
             return 0;
         }
         return childrens / AnimalList.size();
+    }
+
+    public static int getSeed(Animal animal) {
+        int result = animal.getChildren();
+        for(Animal children : animal.getChildrens()) {
+            result += getSeed(children);
+        }
+        return result;
+    }
+    public Genotype getDominateGenotype() {
+        ArrayList<Animal> AnimalList = map.getList();
+        Map<Genotype, Integer> counterMap = new HashMap<Genotype, Integer>();
+        Genotype best = null;
+        int bestC = 0;
+        for(Animal animal : AnimalList) {
+            if(counterMap.containsKey(animal.getGens())) {
+                int counter = counterMap.get(animal.getGens());
+                counterMap.replace(animal.getGens(), counter + 1);
+                if( counter > bestC) {
+                    bestC = counter;
+                    best = animal.getGens();
+                }
+            } else {
+                counterMap.put(animal.getGens(), 1);
+                if(bestC == 0) {
+                    bestC = 1;
+                    best = animal.getGens();
+                }
+            }
+        }
+        return best;
+
+
     }
 }

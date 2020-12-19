@@ -22,7 +22,7 @@ public class sidePanel extends JPanel implements ActionListener {
 
 
     public sidePanel(ButtonsPanel Buttons, StatsPanel Stats, WorldPanel World) {
-        setPreferredSize(new Dimension(300, 400));
+        setPreferredSize(new Dimension(500, 400));
         this.add(Buttons);
         this.add(Stats);
         this.World = World;

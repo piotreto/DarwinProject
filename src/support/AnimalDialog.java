@@ -20,7 +20,7 @@ public class AnimalDialog extends JDialog implements ActionListener{
         this.setSize(600,200);
         this.setLayout(new GridLayout(2,1));
         JLabel text1 = new JLabel("Informacja o zwierzęciu na pozycji" + animal.getPosition());
-        JLabel text2 = new JLabel(this.animal.gens.toString());
+        JLabel text2 = new JLabel(this.animal.getGens().toString());
         this.add(text1);
         this.add(text2);
         this.setLayout(new FlowLayout());

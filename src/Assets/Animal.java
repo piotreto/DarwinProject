@@ -13,16 +13,14 @@ public class Animal implements Observable{
     private MapDirection orient = MapDirection.NORTH;
     private Vector2d position = new Vector2d(2,2);
     public WholeMap map;
-    public Genotype gens;
+    private Genotype gens;
     private double animal_energy;
     private int children = 0;
     private int years = 0;
     private int dead = 0;
     private int ancestors = 0;
+    private ArrayList<Animal> childrens = new ArrayList<Animal>();
 
-    public Animal(WholeMap map) {
-        this.map = map;
-    }
 
     public Animal(WholeMap map, Vector2d initialPosition, double animal_energy, Genotype gens) {
         this.map = map;
@@ -39,7 +37,6 @@ public class Animal implements Observable{
             notifyObservers(oldPosition, this.position);
         }
     }
-
 
     public Animal procreate(Animal other) {
         Genotype newGenotype = this.gens.procreate(other.gens);
@@ -63,9 +60,16 @@ public class Animal implements Observable{
             }
         }
         Animal brzdac = new Animal(map, position, energy, newGenotype);
+        this.addChild(brzdac);
+        other.addChild(brzdac);
+
         brzdac.setAncestors(this.getAncestors() + other.getAncestors() + 2);
         return brzdac;
 
+    }
+
+    public void addChild(Animal child) {
+        this.childrens.add(child);
     }
 
     public int getAncestors() {
@@ -144,17 +148,15 @@ public class Animal implements Observable{
     public void setYears(int n) {
         this.years = n;
     }
-
     public void setDead(int year) {
         this.dead = year;
     }
     public int getDead() {
         return this.dead;
     }
+    public ArrayList<Animal> getChildrens() { return this.childrens; }
+    public Genotype getGens() { return  this.gens; }
 
-    public void test() {
-
-    }
 
 
 }

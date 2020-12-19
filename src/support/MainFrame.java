@@ -10,7 +10,7 @@ public class MainFrame extends JFrame {
 
     private WholeMap map;
     private Simulation engine;
-    public boolean isMain;
+    private boolean isMain;
 
     public MainFrame(WholeMap map, boolean isMain) {
         this.map = map;

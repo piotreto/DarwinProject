@@ -19,8 +19,8 @@ class WholeMapTest {
 
         //validating gens
         for(int i = 0;i < 8;i++) {
-            assertTrue(fox.gens.countGens()[i] > 0);
-            assertTrue(bat.gens.countGens()[i] > 0);
+            assertTrue(fox.getGens().countGens()[i] > 0);
+            assertTrue(bat.getGens().countGens()[i] > 0);
         }
 
         map.place(fox);

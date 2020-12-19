@@ -1,5 +1,6 @@
 package Math;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class Genotype {
@@ -126,6 +127,21 @@ public class Genotype {
         }
         result += String.format("%d]", this.gens[31]);
         return result;
+    }
+
+    @Override
+    public boolean equals(Object other){
+        if (this == other)
+            return true;
+        if (!(other instanceof Genotype))
+            return false;
+        Genotype that = (Genotype) other;
+        return Arrays.equals(this.gens, that.gens);
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.hashCode(this.gens);
     }
 
 }
