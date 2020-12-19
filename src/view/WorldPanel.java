@@ -28,7 +28,7 @@ public class WorldPanel extends JPanel implements MouseListener {
     public WorldPanel(WholeMap map) {
         addMouseListener(this);
         this.map = map;
-        setPreferredSize(new Dimension(map.ySize * objSize,map.xSize * objSize));
+        setPreferredSize(new Dimension(map.xSize * objSize,map.ySize * objSize));
         this.stats =  new Statistics(map);
     }
 
