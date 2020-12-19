@@ -18,7 +18,7 @@ public class writtingToFile {
 
     public void writeToFile() throws FileNotFoundException {
         try {
-            FileWriter myWriter = new FileWriter("./src/files/statsDay" + n + ".txt");
+            FileWriter myWriter = new FileWriter("./src/statsDay" + n + ".txt");
             myWriter.write(String.format("Liczba zwierząt: %d\n", this.stats.countAnimals()));
             myWriter.write(String.format("Liczba roślin: %d\n", this.stats.countGrasses()));
             myWriter.write(String.format("Dominujący genotyp: %s\n", this.stats.getDominateGenotype()));
