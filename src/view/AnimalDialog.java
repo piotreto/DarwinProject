@@ -18,13 +18,13 @@ public class AnimalDialog extends JDialog implements ActionListener{
         this.engine = engine;
         this.setTitle("Dane o zwierzaku");
         this.setSize(600,200);
-        this.setLayout(new GridLayout(2,1));
-        JLabel text1 = new JLabel("Informacja o zwierzęciu na pozycji" + animal.getPosition());
+        this.setLayout(new GridLayout(4,1));
+        JLabel text1 = new JLabel("Informacja o zwierzęciu na pozycji\n" + animal.getPosition());
         JLabel text2 = new JLabel(this.animal.getGens().toString());
         this.add(text1);
         this.add(text2);
         this.setLayout(new FlowLayout());
-        JLabel text3 = new JLabel("Jesli chcesz monitorowac wybrane zwierze kliknij w przycisk");
+        JLabel text3 = new JLabel("Jesli chcesz monitorowac wybrane zwierze kliknij w przycisk\n");
         JButton button = new JButton("Monitoruj");
         button.addActionListener(this::actionPerformed);
         this.add(text3);

@@ -12,13 +12,12 @@ import java.io.FileNotFoundException;
 
 public class sidePanel extends JPanel implements ActionListener {
 
-    private ButtonsPanel Buttons;
-    private StatsPanel Stats;
+
     private JButton newWorld;
     private JButton turnBest;
     private JButton save;
     private WorldPanel World;
-    private Statistics stats;
+
 
 
     public sidePanel(ButtonsPanel Buttons, StatsPanel Stats, WorldPanel World) {
@@ -26,15 +25,15 @@ public class sidePanel extends JPanel implements ActionListener {
         this.add(Buttons);
         this.add(Stats);
         this.World = World;
-        JLabel text3 = new JLabel("Kliknij aby zapisać statystyki do pliku");
+        JLabel text3 = new JLabel("Kliknij aby zapisać statystyki do pliku \n");
         this.add(text3);
         this.save = new JButton("Zapisz");
         save.addActionListener(this::actionPerformed);
         this.add(this.save);
-        JLabel text1 = new JLabel("Kliknij aby dodać nowy świat");
+        JLabel text1 = new JLabel("Kliknij aby dodać nowy świat\n");
         this.newWorld = new JButton("Nowy Świat");
         this.newWorld.addActionListener(this::actionPerformed);
-        JLabel text2 = new JLabel("Kliknij aby wyróżnić zwięrzęta");
+        JLabel text2 = new JLabel("Kliknij aby wyróżnić zwięrzęta\n");
         this.turnBest = new JButton("Dominujący genom");
         this.turnBest.addActionListener(this::actionPerformed);
         this.add(text2);

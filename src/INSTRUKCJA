@@ -1,0 +1,2 @@
+Program uruchamia się poprzez klasę App w package App.
+Jeśli chodzi o zmiane parametrów wejściowych, to jest to możliwe poprzez modyfikację pliku params.json w package Data

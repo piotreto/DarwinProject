@@ -7,14 +7,7 @@ import Math.*;
 
 public class StatsPanel extends JList {
 
-    private static final int HEIGHT = 400;
-    private static final int WIDTH = 400;
-    private JLabel animalsCounter;
-    private JLabel grassCounter;
-    private JLabel dominateGenom;
-    private JLabel averageEnergy;
-    private JLabel averageDeadsLive;
-    private JLabel averageChildren;
+
     private Statistics stats;
     private WholeMap map;
 
